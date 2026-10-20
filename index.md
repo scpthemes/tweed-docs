@@ -64,8 +64,16 @@ Custom data > Metaobjects > Add definition**.
 | Neck | `neck` | Single line text |
 | Chest | `chest` | Single line text |
 | Back length | `back_length` | Single line text |
+| Waist (optional) | `waist` | Single line text |
+| Front leg length (optional) | `front_leg_length` | Single line text |
+| Paw width (optional) | `paw_width` | Single line text |
 | Weight | `weight` | Single line text |
 | Breeds | `breeds` | Single line text |
+
+Every field except Size can stay empty. A column shows only when at least one row of the chart
+has a value for it, so the three optional fields stay out of sight until you use them: **Waist**
+for overalls, snowsuits, onesies, recovery suits and 3-point harnesses, **Front leg length** for
+pieces with legs, **Paw width** for boots and paw socks.
 
 **Definition: Size chart** (type `size_chart`)
 
@@ -74,8 +82,15 @@ Custom data > Metaobjects > Add definition**.
 | Title | `title` | Single line text |
 | Unit | `unit` | Single line text, with the choices `in` and `cm` |
 | Weight unit | `weight_unit` | Single line text, with the choices `lb` and `kg` |
+| Size is decided by (optional) | `primary_measurement` | Single line text, with the choices `chest`, `back_length`, `neck` and `paw_width` |
 | Note | `note` | Multi-line text |
 | Rows | `rows` | Metaobject, list of entries, referencing Size chart row |
+
+**Size is decided by** tells shoppers which measurement to match. Brands differ here: many coats
+and harnesses are sized by chest, rain and dry coats often by back length, collars by neck, boots
+by paw width. The theme marks that column "Picks the size" in the size chart, lists it first on
+the size ladder and says so in the How to measure drawer. Left empty, it is the chest (or the first
+of back length, neck and paw width that the chart has).
 
 Then add the product metafield in **Settings > Custom data > Products > Add definition**:
 name **Size chart**, namespace and key `custom.size_chart`, type **Metaobject**, referencing Size
@@ -86,18 +101,34 @@ chart. To show a chart in a collection's promo tile, add the same definition und
 - Write ranges with a hyphen and numbers only: `17-21`, not `17 to 21 in`. The theme adds the unit
   and converts between inches and centimeters for shoppers.
 - The **Size** value of a row must match the size option value of the products, for example `M`.
-- Measurements describe the dog, not the garment. The theme tells shoppers so.
+- Measurements describe the dog, not the garment. The theme tells shoppers so. If you copy a
+  supplier's table, check that it lists dog measurements and not the garment laid flat.
+- Back length runs from the base of the neck to the base of the tail. Some brands start at the
+  shoulders, which gives a few centimeters less; if your table does, say so in the chart's Note.
+- Converted centimeters are whole numbers, except below 10 cm and for paw width, where they keep
+  one decimal (so 1.5 and 1.75 in show as 3.8 and 4.4 cm).
 
-**How shoppers should measure** (the theme shows this in the How to measure drawer):
+**How shoppers should measure** (the theme shows the measurements the product's chart uses in the
+How to measure drawer; neck, chest and back length when the product has no chart):
 
 - **Neck**: around the base of the neck, where a collar sits. Leave one finger of room.
-- **Chest**: around the widest part of the ribcage, just behind the front legs. This decides the
-  size.
-- **Back length**: from the base of the neck to the base of the tail.
+- **Chest**: around the widest part of the ribcage, behind the front legs.
+- **Back length**: from the base of the neck, where the collar sits, along the spine to the base of
+  the tail.
+- **Waist**: around the narrowest part of the belly, just in front of the hind legs, with the dog
+  standing.
+- **Front leg length**: with the dog standing, from the elbow, where the front leg meets the chest,
+  down the back of the leg to just above the paw.
+- **Paw width**: stand the dog on a sheet of paper, mark both sides of the paw at its widest point
+  and measure between the marks. Hind paws are often smaller, so measure them too.
 
-Where charts show up: the **Size ladder** block on the product page lists the measurements per size,
-the **Size chart** section shows the full table on product pages, and garment cards show the chest
-range when a shopper points at a size. For a page with several charts that do not belong to one
+The step for the measurement that decides the size ends with "This measurement picks the size."
+
+Where charts show up: the **Size ladder** block on the product page lists up to four measurements
+per size (the deciding one first; phones show two), the **Size chart** section shows the full
+table on product pages, a product photo whose alt text contains `#fit` gets a caption with the
+selected size's measurements, and garment cards show the chest range when a shopper points at a
+size. For a page with several charts that do not belong to one
 product (for example one per body shape), use the **Size charts** section and type the rows into
 its blocks.
 

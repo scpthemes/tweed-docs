@@ -18,16 +18,17 @@ cart, checkout, a page that does not load) are fixed right away and released as 
 **What support covers:** the theme's built-in features and settings, and bugs in the theme as it
 was shipped. Custom code, third-party apps and design changes are not covered.
 
-{% if site.support_form_url %}
+{% assign form_url = site.support_form_url | strip %}
+{% if form_url.size > 0 %}
 <iframe
   class="form-frame"
-  src="{{ site.support_form_url }}"
+  src="{{ form_url }}"
   title="Tweed support form"
   loading="lazy"
   allow="geolocation 'none'"
 ></iframe>
 
-If the form does not load, [open the support form in a new tab]({{ site.support_form_url }}).
+If the form does not load, [open the support form in a new tab]({{ form_url }}).
 {% else %}
 The support form is being set up. Please check back soon.
 {% endif %}
