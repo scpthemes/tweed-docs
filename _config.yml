@@ -7,6 +7,7 @@ kramdown:
   input: GFM
 exclude:
   - README.md
-# The public support form (Jotform). Paste the form link, for example
-# https://form.jotform.com/123456789012345, and the Support page embeds it.
-support_form_url: ""
+# The public support form: our own site (source: shopify/support-site in the
+# private repository). The Support page links to it; it cannot be embedded,
+# the support site forbids framing. Empty = "being set up" text.
+support_form_url: "https://support-shopify.scpthemes.com/?theme=Tweed"

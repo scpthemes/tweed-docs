@@ -174,12 +174,19 @@ th {
   background: var(--surface);
 }
 
-.form-frame {
-  inline-size: 100%;
-  min-block-size: 900px;
-  border: 1px solid var(--border);
+.button {
+  display: inline-block;
+  min-block-size: 48px;
+  padding: 12px 28px;
   border-radius: var(--radius);
-  background: #ffffff;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .site-footer {

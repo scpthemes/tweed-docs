@@ -20,15 +20,11 @@ was shipped. Custom code, third-party apps and design changes are not covered.
 
 {% assign form_url = site.support_form_url | strip %}
 {% if form_url.size > 0 %}
-<iframe
-  class="form-frame"
-  src="{{ form_url }}"
-  title="Tweed support form"
-  loading="lazy"
-  allow="geolocation 'none'"
-></iframe>
+<p><a class="button" href="{{ form_url }}">Open the support form</a></p>
 
-If the form does not load, [open the support form in a new tab]({{ form_url }}).
+The form asks for your name, email address, store URL and a description of the problem, and
+takes screenshots or a short screen recording. You get an email with a ticket number right after
+sending it; reply to that email to add details.
 {% else %}
 The support form is being set up. Please check back soon.
 {% endif %}
