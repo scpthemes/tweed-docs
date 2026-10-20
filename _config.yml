@@ -1,0 +1,12 @@
+title: Tweed theme documentation
+description: Setup guide, settings reference, FAQ and support for the Tweed Shopify theme.
+author: SCP Themes
+lang: en
+markdown: kramdown
+kramdown:
+  input: GFM
+exclude:
+  - README.md
+# The public support form (Jotform). Paste the form link, for example
+# https://form.jotform.com/123456789012345, and the Support page embeds it.
+support_form_url: ""
