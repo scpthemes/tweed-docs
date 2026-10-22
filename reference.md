@@ -301,7 +301,7 @@ Where: Add section.
 |---|---|---|---|
 | Heading | Text with bold, italic and links |  |  |
 | Blog | Blog |  |  |
-| Posts to show | Slider, 3 to 4 | 4 |  |
+| Posts to show | Slider, 2 to 4 | 4 |  |
 | Show date | On or off | On |  |
 | Show first tag | On or off | On |  |
 | Link label | Text |  | Links to the blog |
@@ -1349,7 +1349,7 @@ Up to 1 per section.
 | Heading | Text |  |  |
 | Icon | Choice: None, Info, Ruler, Scissors, Shirt, Truck, Package, Exchange, Repeat, Tag, Gift, Lock, Map pin, Clock, Message, Dog, Cat | None |  |
 | Content | Formatted text |  |  |
-| Content from a page | Page |  |  |
+| Content from a page | Page |  | Replaces the text above. A tab with no text and no page is hidden. |
 | Start expanded | On or off | Off |  |
 
 #### Block: Share

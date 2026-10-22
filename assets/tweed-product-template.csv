@@ -1,0 +1,8 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Image Src,Image Position,Image Alt Text,Variant Image,Variant Weight Unit,Body shape (product.metafields.custom.body_shape),Fit note (product.metafields.custom.fit_note),Shown on (product.metafields.custom.shown_on),Status
+example-rain-coat,Example rain coat,"<p>Replace this text with your description: what the coat is made of, how it closes and how it fits.</p>",Your brand,ap-2-6-10,Rainwear,"dogs, dog-apparel, rainwear",FALSE,Color,Navy,Size,XS,EX-COAT-NAVY-XS,120,shopify,10,deny,manual,48.00,,TRUE,TRUE,,,,,g,standard,"Runs small, size up","Shown on Juno, whippet, 13 kg, size M",draft
+example-rain-coat,,,,,,,,,Navy,,S,EX-COAT-NAVY-S,150,shopify,10,deny,manual,48.00,,TRUE,TRUE,,,,,g,,,,
+example-rain-coat,,,,,,,,,Navy,,M,EX-COAT-NAVY-M,190,shopify,10,deny,manual,48.00,,TRUE,TRUE,,,,,g,,,,
+example-rain-coat,,,,,,,,,Navy,,L,EX-COAT-NAVY-L,240,shopify,10,deny,manual,48.00,,TRUE,TRUE,,,,,g,,,,
+example-harness,Example harness,"<p>Replace this text with your description: clip points, adjusters and lining.</p>",Your brand,ap-2-17,Harnesses,"dogs, walk, harnesses",FALSE,Size,S,,,EX-HARNESS-S,90,shopify,10,deny,manual,36.00,,TRUE,TRUE,,,,,g,deep-chest,Sized by chest,,draft
+example-harness,,,,,,,,,M,,,EX-HARNESS-M,110,shopify,10,deny,manual,36.00,,TRUE,TRUE,,,,,g,,,,
+example-harness,,,,,,,,,L,,,EX-HARNESS-L,140,shopify,10,deny,manual,36.00,,TRUE,TRUE,,,,,g,,,,

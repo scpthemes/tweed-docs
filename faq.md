@@ -22,7 +22,7 @@ products.
 ### The size ladder shows sizes but no measurements
 
 Measurements come from a size chart entry linked to the product. Create the size chart definitions
-(see [Size charts](../#size-charts)), add an entry with one row per size, and pick that entry in the
+(see [Size charts](../#3-size-charts)), add an entry with one row per size, and pick that entry in the
 product's **Size chart** metafield. The value in the row's Size field must match the size option
 value, for example `M` and `M`.
 
@@ -36,7 +36,13 @@ settings > Fit > **Default unit** decides what shoppers see first.
 
 Body shape filtering uses a product metafield filter, which you turn on once in the free Search and
 Discovery app: Filters > Add filter > the body shape metafield. Until then the links open the
-collection without filtering. See [Filters](../#filters).
+collection without filtering. See [Filters](../#5-filters).
+
+### Do I have to enter fit data product by product?
+
+No. Create the metafield definitions, then fill body shapes, fit notes and Shown on lines in a
+spreadsheet and import it: export your products, or start from the theme's product template. See
+[Fill fit data in a spreadsheet](../#fill-fit-data-in-a-spreadsheet).
 
 ### Can I use the fit features for cats or other pets?
 
@@ -97,7 +103,7 @@ location then show the **Pickup availability** block's message on the product pa
 ### Which languages does the theme include?
 
 The storefront text and the theme editor are translated into English, French, German, Italian and
-Spanish. Shopify picks the file that matches the store or market language. Edit any wording in
+Spanish (Latin American forms, as in Shopify's own Spanish). Shopify picks the file that matches the store or market language. Edit any wording in
 Online Store > Themes > Edit default theme content.
 
 ### How do shoppers change country or language?

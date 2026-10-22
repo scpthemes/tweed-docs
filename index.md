@@ -11,6 +11,7 @@ department, shoppers browse by fit: size and body shape. This guide sets the the
 install. Every setting is listed with its exact label in the [settings reference](reference/), and
 common questions are answered in the [FAQ](faq/).
 
+- [Setup order](#setup-order)
 - [1. Before you start](#1-before-you-start)
 - [2. First steps after installing](#2-first-steps-after-installing)
 - [3. Size charts](#3-size-charts)
@@ -25,6 +26,22 @@ common questions are answered in the [FAQ](faq/).
 - [12. Languages and markets](#12-languages-and-markets)
 - [13. Speed and accessibility](#13-speed-and-accessibility)
 - [14. Support and updates](#14-support-and-updates)
+
+## Setup order
+
+Each step uses what the step before it created, so this order saves going back:
+
+1. Set the basics in the theme editor ([section 2](#2-first-steps-after-installing)).
+2. Create the metafield and metaobject definitions ([section 3](#3-size-charts) and
+   [section 4](#4-body-shapes-and-fit-notes)). Do it before you import or export products: a
+   product export only has a column for a metafield whose definition exists.
+3. Add your products, or fill the fit fields of the products you have, from a spreadsheet
+   ([Fill fit data in a spreadsheet](#fill-fit-data-in-a-spreadsheet)).
+4. Create your size charts and pick one on each product ([section 3](#3-size-charts)).
+5. Create collections from product tags ([section 9](#9-collection-pages)).
+6. Add filters in Search and Discovery ([section 5](#5-filters)).
+7. Build the menus ([section 6](#6-navigation)) and the pages
+   ([section 11](#11-pages-and-templates)).
 
 ## 1. Before you start
 
@@ -48,7 +65,8 @@ Tweed works with standard Shopify data and needs no apps. To use its fit feature
    keys under **Metafields** only change if you use other keys than the defaults in section 3 and 4.
 6. Replace the instructional text in the announcement bar, the cart and the product tabs with your
    own wording. Those defaults explain what to write; they are visible to shoppers until you edit
-   them.
+   them. A product tab that points to a page shows the page instead of its text, and a tab with no
+   text and no page is hidden from shoppers.
 
 ## 3. Size charts
 
@@ -143,11 +161,51 @@ metafields in **Settings > Custom data > Products > Add definition**:
 | Fit note | `custom.fit_note` | Single line text | A short line on product cards, such as "Runs small, size up" |
 | Shown on | `custom.shown_on` | Multi-line text | The Fit note block on the product page, such as "Shown on Juno, whippet, 13 kg, size M" |
 
+### Fill fit data in a spreadsheet
+
+With a large catalog, fill body shapes, fit notes and Shown on lines in a spreadsheet instead of
+opening each product.
+
+- **Products you already have**: create the definitions above first, then export your products
+  in **Products > Export**. Once a definition exists, the export has a column for it, for example
+  `Body shape (product.metafields.custom.body_shape)`. Fill those columns, then import the file in
+  **Products > Import** with **Overwrite products with matching handles** selected. Change only the
+  fit columns: when overwriting, an empty cell clears that value in your store, while a column you
+  remove from the file leaves the value as it is.
+- **New products**: start from the [product template](assets/tweed-product-template.csv). It holds
+  two examples, saved as drafts so shoppers never see them: a rain coat with Color and Size options
+  and a harness with sizes only. Every variant is one row; the product's details and fit fields go
+  on its first row. Replace the examples with your products and import the file.
+
+In both cases:
+
+- **Body shape** takes `standard`, `deep-chest`, `long-body` or `broad-chest`, spelled exactly
+  like that.
+- **Product Category** takes a Shopify category ID (`ap-2-6-10` is Pet Rain Coats, `ap-2-17` is
+  Pet Collars & Harnesses) or the full English category path. IDs also work when your admin is in
+  another language.
+- **Tags** fill your collections ([section 9](#9-collection-pages)), for example
+  `dogs, rainwear`.
+- **Variant Image** takes a public image URL, such as a file uploaded in **Content > Files**. Give
+  each color its photo there and the theme shows that photo as the color's swatch
+  ([section 8](#8-product-pages)).
+- Pick size charts on the product pages ([section 3](#3-size-charts)).
+
 ## 5. Filters
 
 Collection and search pages use Shopify's own filtering. Configure it in the free **Search and
 Discovery** app by Shopify: **Filters > Add filter**. Recommended filters: Availability, Price,
-Product type, Size (the size option), Color, and the **Body shape** metafield.
+Product type, Size (the size option), Color, Animal type, and the **Body shape** metafield.
+
+**Animal type** lets shoppers narrow by species. Shopify's categories for pet apparel, collars and
+harnesses, leashes and bowls have this standard field, with values such as Dogs, Cats, Rabbits and
+Guinea pigs. Shopify creates it when you give a product its category, so there is no definition to
+add: set it in the product's **Category metafields** section. Food and treat categories are already
+split by species (Dog Food, Cat Food), so the **Category** filter covers them.
+
+**Color**: when the Color option is linked to color entries ([section 8](#8-product-pages)), the
+filter can show the colors as swatches. Open the filter in Search and Discovery, click **Manage
+values** and select **Include swatch**.
 
 The body shape links of the fit rail, the fit finder and the Shop by fit column open a collection
 filtered by the Body shape metafield. They filter once that metafield is added as a filter; before
@@ -204,6 +262,13 @@ blocks.
   product has a size chart (section 3).
 - **Media**: product photos, videos and 3D models. Choose a stacked or thumbnail layout and turn
   zoom on or off in the section settings.
+- **Color swatches**: the variant picker and the product cards show an option named Color as
+  swatches. Each swatch uses the color's entry when the option is linked to one, otherwise the
+  photo of that color's variant, otherwise the color name. To link it, give the product a category
+  with a Color field (pet apparel, collars and harnesses and leashes have one), click the Color
+  option in **Variants**, click the dynamic source icon and pick the category's **Color**
+  metafield. Set the color or pattern image of an entry once, in the product's **Category
+  metafields** section; every product linked to that entry follows.
 - **Size chart** and **Related products** sections can be added below the product information.
 - **Complementary products** come from the Search and Discovery app's product recommendations.
 
@@ -212,6 +277,24 @@ blocks.
 The **Collection banner** shows the collection title, description and image. The **Product grid**
 has products per page, products per row, a load more button or page numbers, filtering (section 5),
 sorting and an optional **Promo tile** block that sits in the grid on the first page.
+
+### Creating collections
+
+Collections that fill themselves from product tags are the easiest to keep up:
+
+1. Tag your products, for example `dogs`, `coats` or `harnesses`, in the `Tags` column of the
+   product CSV or on the product page.
+2. In **Products > Collections**, create a collection and add a condition: product tag is equal to
+   `coats`. Products that match join the collection, and a product with several tags sits in
+   several collections.
+
+The product CSV also has a `Collection` column that creates a collection during the import, but it
+puts each product in one collection only.
+
+A structure that suits a pet apparel catalog: one collection per species (Dogs, Cats), per
+department (Apparel, Walk, Supplies) and per product family (Coats, Rainwear, Knitwear, Harnesses,
+Leashes, Collars, Food, Treats, Beds), plus New arrivals and Sale. Pick them in the home page
+sections and link them from the main menu.
 
 ## 10. Cart
 
@@ -232,7 +315,7 @@ short service promises such as free exchanges.
 ## 12. Languages and markets
 
 The storefront text and the theme editor are translated into English, French, German, Italian and
-Spanish. Change any wording in **Online Store > Themes > the three dots > Edit default theme
+Spanish (Latin American forms, as in Shopify's own Spanish). Change any wording in **Online Store > Themes > the three dots > Edit default theme
 content**. Add countries in Settings > Markets and languages in Settings > Languages; the country
 and language selectors in the header and footer appear when there is more than one choice.
 Right-to-left languages are supported.
